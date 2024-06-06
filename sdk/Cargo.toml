@@ -1,0 +1,7 @@
+[package]
+name = "cloudquery_sdk"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+cloudquery_entrypoint = { path = "../cloudquery_entrypoint" }

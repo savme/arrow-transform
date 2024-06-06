@@ -319,6 +319,22 @@ dependencies = [
 ]
 
 [[package]]
+name = "cloudquery_entrypoint"
+version = "0.1.0"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
+name = "cloudquery_sdk"
+version = "0.1.0"
+dependencies = [
+ "cloudquery_entrypoint",
+]
+
+[[package]]
 name = "const-random"
 version = "0.1.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -690,6 +706,7 @@ version = "0.1.0"
 dependencies = [
  "arrow",
  "bytes",
+ "cloudquery_sdk",
 ]
 
 [[package]]
