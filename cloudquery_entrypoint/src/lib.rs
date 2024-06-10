@@ -87,6 +87,11 @@ pub fn cloudquery_transform(attr: TokenStream, item: TokenStream) -> TokenStream
     let expanded = quote! {
         #[cfg_attr(all(target_arch = "wasm32"), export_name = #export_name)]
         pub fn #wn(ptr: u32, size: u32) -> u64 {
+            use cloudquery_sdk::arrow::ipc::reader::StreamReader;
+            use cloudquery_sdk::arrow::ipc::writer::StreamWriter;
+            use cloudquery_sdk::bytes::{Buf, BufMut};
+            use cloudquery_sdk::log;
+
             let v = Box::new(unsafe { Vec::from_raw_parts(ptr as *mut u8, size as usize, size as usize) })
                 .leak();
 

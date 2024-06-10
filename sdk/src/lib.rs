@@ -1,4 +1,6 @@
 pub use cloudquery_entrypoint::cloudquery_transform;
+pub use bytes;
+pub use arrow;
 
 use std::mem::MaybeUninit;
 

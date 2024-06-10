@@ -1,19 +1,11 @@
 use std::sync::Arc;
 
-use arrow::{
-    array::{Array, ArrayRef, RecordBatch, StringArray, StringBuilder},
-    datatypes::DataType,
-    ipc::{reader::StreamReader, writer::StreamWriter},
-};
-use bytes::{Buf, BufMut};
-
+use cloudquery_sdk::arrow::array::{Array, ArrayRef, RecordBatch, StringArray, StringBuilder};
+use cloudquery_sdk::arrow::datatypes::DataType;
 use cloudquery_sdk::cloudquery_transform;
-use cloudquery_sdk::log;
 
 #[cloudquery_transform]
-pub fn reverse_all_strings(
-    record: arrow::record_batch::RecordBatch,
-) -> arrow::record_batch::RecordBatch {
+pub fn reverse_all_strings(record: RecordBatch) -> RecordBatch {
     let schema = record.schema();
 
     let new_columns = record
